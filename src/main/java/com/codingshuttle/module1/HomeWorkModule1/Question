@@ -1,0 +1,13 @@
+reate a class called CakeBaker that is dependent on two other components: Frosting and Syrup.
+
+The CakeBaker class should have a method called bakeCake().
+
+Create two interfaces named Frosting and Syrup, each having a method called getFrostingType() and getSyrupType(), respectively.
+
+Provide two implementations for each interface (a total of four implementation classes):
+
+Chocolate and Strawberry flavors for Frosting
+
+Chocolate and Strawberry flavors for Syrup
+
+Use Dependency Injection to inject the Frosting and Syrup dependencies into the CakeBaker class, and invoke the bakeCake() method.

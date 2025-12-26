@@ -1,5 +1,6 @@
 package com.codingshuttle.module1;
 
+import com.codingshuttle.module1.HomeWorkModule1.CakeBaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -40,6 +41,10 @@ Map<String,NotificationService> Beans=new HashMap<>();
     //now with the help of constructor method of di we can not change the notificaiton service
 //    ex: NotificationService=null;
 
+    //homework
+    @Autowired
+    CakeBaker cakeBaker;
+
 	public static void main(String[] args) {
 		SpringApplication.run(Module1Application.class, args);
 	}
@@ -54,5 +59,6 @@ Map<String,NotificationService> Beans=new HashMap<>();
             System.out.println(nf.getKey());
             nf.getValue().send("sending");
         }
+        cakeBaker.BakeCake();
     }
 }
