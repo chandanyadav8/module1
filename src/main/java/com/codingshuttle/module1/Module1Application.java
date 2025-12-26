@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootApplication
 public class Module1Application implements CommandLineRunner {
@@ -17,11 +21,21 @@ public class Module1Application implements CommandLineRunner {
 
 
 //    will use constructor method DI
-        final NotificationService notificationService;
+//        final NotificationService notificationService;
 //        We have define the qualifier now we need to set the qualifier here alos
-    public Module1Application(NotificationService notificationService){
-        this.notificationService=notificationService;
-    }
+//    public Module1Application(@Qualifier("smsconfig") NotificationService notificationService){
+//        this.notificationService=notificationService;
+//    }
+
+//if we are using conditionalon property we have remove  qualifeir
+//    public Module1Application(NotificationService notificationService){
+///       this.notificationService=notificationService;
+//    }
+
+//if i need to use all the implementation of notificaitonservice
+// for this we have remove conditional on property
+@Autowired
+Map<String,NotificationService> Beans=new HashMap<>();
 
     //now with the help of constructor method of di we can not change the notificaiton service
 //    ex: NotificationService=null;
@@ -34,6 +48,11 @@ public class Module1Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         paymentService.pay();
-        notificationService.send("sending");
+//        notificationService.send("sending");
+        for(var nf: Beans.entrySet())
+        {
+            System.out.println(nf.getKey());
+            nf.getValue().send("sending");
+        }
     }
 }

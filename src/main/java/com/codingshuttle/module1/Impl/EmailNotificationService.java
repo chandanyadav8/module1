@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 //If i want to create bean of this class on any condition property present in
 //application.properties then we use conditionalproperty.
-@ConditionalOnProperty(name="notification.type",havingValue = "email")
+//@ConditionalOnProperty(name="notification.type",havingValue = "email")
 @Component
 @Qualifier("emailconfig")
 

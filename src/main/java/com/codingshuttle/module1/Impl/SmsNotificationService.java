@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 //@Primary
 
 
-@ConditionalOnProperty(name="notification.type",havingValue = "sms")
+//@ConditionalOnProperty(name="notification.type",havingValue = "sms")
 
 @Component
 //We can use qualifier, by this we can provide name to this service
